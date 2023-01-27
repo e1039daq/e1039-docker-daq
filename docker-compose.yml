@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  beamDAQ:
+    image: beamDAQ:latest
+    build: beam/
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    network_mode: host
+
+  scalerDAQ:
+    image: scalerDAQ:latest
+    build: scaler/
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /localstorage/daq/scaler/coda:/usr/local/coda
+    # network_mode: host
+    networks:
+      - local-only    
+    ports:
+      - "8101:8101"
+      - "11111:11111"
+      - "45001:45001"
+      - "45301:45301"
+      - "45303:45303"
+      - "45305:45305"
+      - "38359:38359"
+      - "45400:45400"
+      - "32898:32898"
+      - "45401:45401"
+      - "33828:33828"
+
+networks:
+  local-only:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+         - subnet: "192.168.24.0/255"
+
+
