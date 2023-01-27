@@ -1,8 +1,8 @@
 version: "3"
 
 services:
-  beamDAQ:
-    image: beamDAQ:latest
+  beamdaq:
+    image: beamdaq:latest
     build: beam/
     environment:
       - DISPLAY=${DISPLAY}
@@ -10,8 +10,8 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
     network_mode: host
 
-  scalerDAQ:
-    image: scalerDAQ:latest
+  scalerdaq:
+    image: scalerdaq:latest
     build: scaler/
     environment:
       - DISPLAY=${DISPLAY}
