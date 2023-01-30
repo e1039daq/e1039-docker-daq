@@ -2,7 +2,7 @@ FROM sl:7
 WORKDIR /opt/coda
 RUN curl -L https://github.com/ngpaladi/simple-gtk-prompt/releases/download/v0.1.0/simple-gtk-prompt --output /usr/local/bin/simple-gtk-prompt
 RUN chmod +x /usr/local/bin/simple-gtk-prompt
-RUN yum install -y xauth dbus-x11 gtkmm30 java-1.6.0-openjdk 
+RUN yum install -y xauth dbus-x11 gtkmm30 java-1.6.0-openjdk screen xterm
 RUN mkdir -p /usr/local/coda /etc
 # COPY localstorage/daq/scaler/coda /usr/local/
 COPY localstorage/backups/e1039sc4/etc/hosts.allow /etc/
