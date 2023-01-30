@@ -1,6 +1,7 @@
 build:
 	-ln -s /localstorage
 	for container in beam scaler; do \
+		-ln -s /localstorage $$container; \
 		mkdir -p $$container/assets ; \
 		sed "s=XAUTHKEY=$$(xauth list | head -n 1)=" $$container/templates/entrypoint.sh > $$container/assets/entrypoint.sh ; \
 	done
