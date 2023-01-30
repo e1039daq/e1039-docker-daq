@@ -1,5 +1,6 @@
 build:
-	-ln -s /localstorage
+	mkdir -p localstorage
+	-sudo mount -o bind /localstorage localstorage/
 	for container in beam scaler; do \
 		-ln -s /localstorage $$container; \
 		mkdir -p $$container/assets ; \
