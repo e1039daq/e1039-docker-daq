@@ -8,4 +8,4 @@ build:
 	done
 	sudo docker compose build --no-cache
 run: build
-	sudo docker compose up
+	./run

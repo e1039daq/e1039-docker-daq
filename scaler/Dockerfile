@@ -10,7 +10,7 @@ COPY localstorage/backups/e1039sc4/etc/hosts.deny /etc/
 COPY localstorage/backups/e1039sc4/etc/hosts /etc/
 COPY localstorage/backups/e1039sc4/etc/hostname /etc/
 # RUN rm -rf /usr/local/coda/2.6.1/common/rcdb/* /usr/local/coda/2.6.1/common/rcdb.org/*
-COPY localstorage/backups/e1039sc4/home/e1039daq /opt/coda/
+COPY localstorage/backups/e1039sc4/home/e1039daq/ /opt/coda/
 COPY assets/entrypoint.sh /opt/
 COPY localstorage/backups/e1039sc4/home/e1039daq/.tcshrc ~
 COPY localstorage/backups/e1039sc4/home/e1039daq/dosetupcoda261 ~
