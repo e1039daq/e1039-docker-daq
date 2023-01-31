@@ -6,7 +6,7 @@ for container in beam scaler; do \
     sed "s=XAUTHKEY=$(xauth list | head -n 1)=" $container/templates/entrypoint.sh > $container/assets/entrypoint.sh ; \
 done
 
-# Copy files for BeamDAQ
+# Copy files for BeamDAQ and build
 /bin/cp -rf /localstorage/daq/beam/BeamDAQ beam/assets
 
 # Copy files for ScalerDAQ
