@@ -22,6 +22,7 @@ services:
     networks:
       - local-only    
     ports:
+      - "69:69"
       - "8101:8101"
       - "11111:11111"
       - "45001:45001"
