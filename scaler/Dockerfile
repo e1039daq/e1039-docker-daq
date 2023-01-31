@@ -15,4 +15,6 @@ COPY assets/entrypoint.sh /opt/
 COPY assets/home/e1039daq/.tcshrc ~
 COPY assets/home/e1039daq/dosetupcoda261 ~
 RUN ln -s /opt/coda/e1039daq /home/e1039daq
+RUN ln -s /opt/coda/e1039daq/data ~
+RUN mkdir /opt/coda/data
 ENTRYPOINT ["/bin/sh", "/opt/entrypoint.sh"]
