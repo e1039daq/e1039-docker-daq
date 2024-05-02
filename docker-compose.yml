@@ -26,10 +26,10 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.Xauthority:/root/.Xauthority
       - ~/.Xauthority:/home/e1039daq/.Xauthority
-      - /localstorage/daq/scaler/coda:/usr/local/coda
-      - /localstorage/data/scaler:/opt/coda/data
+      - /data4/dockerDAQ/daq/scaler/coda:/usr/local/coda
+      - /data4/dockerDAQ/data/scaler:/opt/coda/data
       - /data2:/data2
-      - /localstorage/data/scaler:/home/e1039daq/data
+      - /data4/dockerDAQ/data/scaler:/home/e1039daq/data
     # network_mode: host 
     networks:
       scaler_vlan:

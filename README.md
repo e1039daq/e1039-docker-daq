@@ -4,7 +4,7 @@ The project contains the files neccessary to build a version of each piece of DA
 ## Prerequisites
 Please install [Docker Engine](https://docs.docker.com/engine/) and [Docker Compose](https://docs.docker.com/compose/). For development purposes you can use [Docker Desktop](https://www.docker.com/products/docker-desktop/), provided licensing requirements are met.
 
-Additionally, this requires files not contained in this repoitory, specifically those in the `/localstorage/` directory of the DAQ testing/backup server in NM4. Please create a folder called `localstorage` and copy over the contents of the original machine before using this. We unfortunately do not have access to the source for the version of CODA we use so this step is essential.
+Additionally, this requires files not contained in this repository, specifically those in the `/data4/dockerDAQ/` directory of the `SeaQuestDsk0` server in NM4. We unfortunately do not have access to the source for the version of CODA we use so this step is essential.
 
 ## Building
 A makefile is included for ease of use. Run `make build` to build the setup.
