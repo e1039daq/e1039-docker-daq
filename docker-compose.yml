@@ -1,51 +1,57 @@
-version: "3"
-
 services:
   beamdaq:
-    image: beamdaq:latest
-    build: beam/
-    environment:
-      - DISPLAY=${DISPLAY}
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-    network_mode: host
+   image: beamdaq:latest
+   build: beam/
+  #  entrypoint: ls
+  #  stdin_open: true # docker run -i
+  #  tty: true        # docker run -t
+   environment:
+     - DISPLAY=${DISPLAY}
+   volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - ~/.Xauthority:/root/.Xauthority
+     - /data2:/data2
+   network_mode: host
 
   scalerdaq:
     image: scalerdaq:latest
     build: scaler/
+    hostname: e1039sc4.sq.pri
     # entrypoint: /bin/tcsh
     environment:
       - DISPLAY=${DISPLAY}
+      - FTP_USER=e1039daq
+      - FTP_PASS=ftp
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.Xauthority:/root/.Xauthority
+      - ~/.Xauthority:/home/e1039daq/.Xauthority
       - /localstorage/daq/scaler/coda:/usr/local/coda
       - /localstorage/data/scaler:/opt/coda/data
-    network_mode: bridge
-    # networks:
-      # local-only:
-        # ipv4_address: 192.168.24.15    
-    ports:
-      - "69:69"
-      - "8101:8101"
-      - "11111:11111"
-      - "45001:45001"
-      - "45301:45301"
-      - "45303:45303"
-      - "45305:45305"
-      - "38359:38359"
-      - "45400:45400"
-      - "32898:32898"
-      - "45401:45401"
-      - "33828:33828"
+      - /data2:/data2
+      - /localstorage/data/scaler:/home/e1039daq/data
+    # network_mode: host 
+    networks:
+      scaler_vlan:
+        ipv4_address: 192.168.24.14   
+    # extra_hosts:
+      # - e1039sc4.sq.pri:192.168.24.12
+      # - e1039sc4.sq.pri:192.168.24.14
+    # ports:
+    #   - 192.168.24.14:111:111
+    #   - 192.168.24.14:513:513
+    #   - 192.168.24.14:514:514
+    #   - 192.168.24.14:20:20
+    #   - 192.168.24.14:21:21
+    #   - 192.168.24.14:1000-65000:1000-65000/tcp
+    #   - 192.168.24.14:1000-65000:1000-65000/udp
 
 networks:
-  local-only:
-    driver: bridge
+  scaler_vlan:
+    driver: ipvlan
+    driver_opts:
+      parent: eno1
     ipam:
-      driver: default
       config:
-        - subnet: 192.168.26.0/24
-          gateway: 192.168.26.71
-
-
+        - subnet: "192.168.24.0/24"
+          gateway: "192.168.24.71"
