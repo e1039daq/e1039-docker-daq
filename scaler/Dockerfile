@@ -10,9 +10,9 @@ RUN yum install -y net-tools nmap xauth dbus-x11 gtkmm30 java-1.6.0-openjdk vsft
 RUN yum install -y systemd-libs.i686 --setopt=protected_multilib=false
 RUN yum groupinstall -y yum groupinstall "X Window System"
 
-COPY /data4/dockerDAQ/assets/scaler/libstdc++.so.5.0.7 /usr/lib
-COPY /data4/dockerDAQ/assets/scaler/libXm.so.3.0.2 /usr/lib
-COPY /data4/dockerDAQ/assets/scaler/libXm.a /usr/lib
+COPY assets/libstdc++.so.5.0.7 /usr/lib
+COPY assets/libXm.so.3.0.2 /usr/lib
+COPY assets/libXm.a /usr/lib
 
 RUN ln -s libstdc++.so.5.0.7 libstdc++.so.5
 RUN ln -s libXm.so.3.0.2 libXm.so.3
@@ -30,23 +30,23 @@ RUN chown -R $FTP_USER:$FTP_USER /home/$FTP_USER
 RUN echo "$FTP_USER:$FTP_PASS" | /usr/sbin/chpasswd
 
 
-COPY /data4/dockerDAQ/assets/scaler/etc/vsftpd.conf /etc
-COPY /data4/dockerDAQ/assets/scaler/home/e1039daq /home/$FTP_USER/
+COPY assets/etc/vsftpd.conf /etc
+COPY assets/home/e1039daq /home/$FTP_USER/
 RUN mkdir -p /home/$FTP_USER/data
 
 RUN chown $FTP_USER:$FTP_USER /home/$FTP_USER/*
 RUN chown $FTP_USER:$FTP_USER /home/$FTP_USER/V1495scaler_daq
 RUN chown $FTP_USER:$FTP_USER /home/$FTP_USER/tftpboot	
 
-COPY /data4/dockerDAQ/assets/scaler/etc/hosts.allow /etc
-COPY /data4/dockerDAQ/assets/scaler/etc/hosts.deny /etc
-COPY /data4/dockerDAQ/assets/scaler/etc/hosts /opt
-COPY /data4/dockerDAQ/assets/scaler/etc/hostname /etc
-COPY /data4/dockerDAQ/assets/scaler/etc/hosts.equiv /etc
+COPY assets/etc/hosts.allow /etc
+COPY assets/etc/hosts.deny /etc
+COPY assets/etc/hosts /opt
+COPY assets/etc/hostname /etc
+COPY assets/etc/hosts.equiv /etc
 
 COPY entrypoint.sh /opt
-COPY /data4/dockerDAQ/assets/scaler/home/e1039daq/.tcshrc /root
-COPY /data4/dockerDAQ/assets/scaler/home/e1039daq/dosetupcoda261 /root
+COPY assets/home/e1039daq/.tcshrc /root
+COPY assets/home/e1039daq/dosetupcoda261 /root
 
 RUN ln -s /home/$FTP_USER/data /root
 RUN mkdir /opt/coda/data
