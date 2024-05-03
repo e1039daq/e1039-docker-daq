@@ -24,8 +24,7 @@ sudo -i -u $FTP_USER tcsh << EOF
 cd /home/$FTP_USER
 source dosetupcoda261
 ./PreCoda
-./rcgui &
-echo "Starting RunFFT"
-xterm -hold -cr blue -bg blue -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T "Run FFT" -e './RunFFT'   &
-/usr/local/bin/simple-gtk-prompt "End all Coda processes?" 
+# echo "Starting RunFFT"
+# xterm -hold -cr blue -bg blue -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T "Run FFT" -e './RunFFT'   &
+./rcgui
 ./kcoda
