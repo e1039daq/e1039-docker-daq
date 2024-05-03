@@ -8,6 +8,6 @@ build:
 run: build
 	./run.sh
 
-update-assets:
+update-data4-assets:
 	rsync -a --info=progress2 scaler/assets/ /data4/dockerDAQ/assets/scaler
 	rsync -a --info=progress2 beam/assets/ /data4/dockerDAQ/assets/beam
