@@ -26,5 +26,5 @@ source dosetupcoda261
 ./PreCoda
 # echo "Starting RunFFT"
 # xterm -hold -cr blue -bg blue -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T "Run FFT" -e './RunFFT'   &
-./rcgui
+rcgui
 ./kcoda
