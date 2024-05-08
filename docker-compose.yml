@@ -11,6 +11,7 @@ services:
      - /tmp/.X11-unix:/tmp/.X11-unix
      - ~/.Xauthority:/root/.Xauthority
      - /data2:/data2
+     - /data4:/data4
    network_mode: host
 
   scalerdaq:
@@ -49,7 +50,7 @@ services:
 
 networks:
   scaler_vlan:
-    driver: ipvlan
+    driver: macvlan
     driver_opts:
       parent: eno1
     ipam:
