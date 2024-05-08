@@ -8,4 +8,5 @@ WORKDIR /opt
 COPY assets/ /opt/
 COPY entrypoint.sh /opt/
 WORKDIR /opt/BeamDAQ 
+USER e1039daq
 ENTRYPOINT ["/bin/sh", "/opt/entrypoint.sh"]
