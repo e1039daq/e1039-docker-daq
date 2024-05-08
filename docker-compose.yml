@@ -29,6 +29,7 @@ services:
       - /data4/dockerDAQ/daq/scaler/coda:/usr/local/coda
       - /data4/dockerDAQ/data/scaler:/opt/coda/data
       - /data2:/data2
+      - /data4:/data4
       - /data4/dockerDAQ/data/scaler:/home/e1039daq/data
     # network_mode: host 
     networks:
