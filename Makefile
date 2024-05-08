@@ -7,7 +7,7 @@ build:
 	docker compose build 
 
 run: build
-    docker compose up
+	docker compose up
 
 update-data4-assets:
 	rsync -a --info=progress2 scaler/assets/ /data4/dockerDAQ/assets/scaler
