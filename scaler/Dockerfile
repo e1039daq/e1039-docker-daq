@@ -1,7 +1,7 @@
 FROM sl:7
 
 WORKDIR /
-RUN mkdir -p /usr/local/coda /etc /opt/coda /home /opt/coda/e1039daq /tmp /data2 /data4
+RUN mkdir -p /usr/local/coda /etc /opt/coda /home /opt/coda/e1039daq /tmp /data2 /data4 /opt/E906ScalerDAQ
 WORKDIR /opt/coda
 
 RUN curl -L https://github.com/ngpaladi/simple-gtk-prompt/releases/download/v0.1.0/simple-gtk-prompt --output /usr/local/bin/simple-gtk-prompt
@@ -47,6 +47,7 @@ COPY assets/etc/hosts.equiv /etc
 
 COPY entrypoint.sh /opt
 
+COPY assets/E906ScalerDAQ /opt/E906ScalerDAQ
 COPY assets/home/e1039daq/.tcshrc /root
 COPY assets/home/e1039daq/dosetupcoda261 /root
 
