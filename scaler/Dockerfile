@@ -7,8 +7,9 @@ WORKDIR /opt/coda
 RUN curl -L https://github.com/ngpaladi/simple-gtk-prompt/releases/download/v0.1.0/simple-gtk-prompt --output /usr/local/bin/simple-gtk-prompt
 RUN chmod a+x /usr/local/bin/simple-gtk-prompt
 RUN yum install -y epel-release
-RUN yum install -y net-tools root nmap xauth dbus-x11 gtkmm30 java-1.6.0-openjdk vsftpd sudo screen xterm tcsh telnet root libpng-devel glibc.i686 compat-libstdc++-33-3.2.3-72.el7.i686  xinetd rsh-server openmotif libXp tftp tftp-server xterm xorg-x11-fonts-misc xorg-x11-fonts-100dpi.noarch xorg-x11-fonts-75dpi.noarch xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi glibc.i686 libXp.i686 libXpm.i686 libXt.i686 libXmu.i686 libgcc.i686 libXcursor.i686 openssl-libs.i686 cronie
+RUN yum install -y net-tools root nmap xauth dbus-x11 gtkmm30 java-1.6.0-openjdk vsftpd sudo screen xterm tcsh telnet  glibc.i686 compat-libstdc++-33-3.2.3-72.el7.i686  xinetd rsh-server openmotif libXp tftp tftp-server xorg-x11-fonts-misc xorg-x11-fonts-100dpi.noarch xorg-x11-fonts-75dpi.noarch xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi glibc.i686 libXp.i686 libXpm.i686 libXt.i686 libXmu.i686 libgcc.i686 libXcursor.i686 cronie
 RUN yum install -y systemd-libs.i686 --setopt=protected_multilib=false
+RUN yum install -y libpng openssl-libs.i686 openssl-libs.x86_64 openssl.x86_64 freetype.i686 freetype.x86_64
 
 COPY assets/libstdc++.so.5.0.7 /usr/lib
 COPY assets/libXm.so.3.0.2 /usr/lib
