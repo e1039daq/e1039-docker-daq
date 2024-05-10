@@ -27,8 +27,10 @@ ENV FTP_USER=e1039daq \
 
 RUN groupadd -g $GID $FTP_USER
 RUN groupadd -g 500 ${FTP_USER}500
+RUN groupadd -g 10391 slowcontrols
 RUN useradd -rm -d /home/$FTP_USER -s /bin/sh -g $FTP_USER -u $UID $FTP_USER
 RUN usermod -a -G ${FTP_USER}500 ${FTP_USER}
+RUN usermod -a -G slowcontrols ${FTP_USER}
 RUN mkdir -p /home/$FTP_USER
 RUN chown -R $FTP_USER:$FTP_USER /home/$FTP_USER
 RUN echo "$FTP_USER:$FTP_PASS" | /usr/sbin/chpasswd
