@@ -3,8 +3,8 @@ services:
    image: beamdaq:latest
    build: beam/
   #  entrypoint: ls
-  #  stdin_open: true # docker run -i
-  #  tty: true        # docker run -t
+   stdin_open: true # docker run -i
+   tty: true        # docker run -t
    environment:
      - DISPLAY=${DISPLAY}
      - TZ=America/Chicago
@@ -19,6 +19,8 @@ services:
     image: scalerdaq:latest
     build: scaler/
     hostname: e1039sc4.sq.pri
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
     # entrypoint: /bin/tcsh
     environment:
       - DISPLAY=${DISPLAY}
