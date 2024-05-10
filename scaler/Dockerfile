@@ -22,8 +22,8 @@ RUN ln -s libXm.so.3.0.2 libXm.so.3
 
 ENV FTP_USER=e1039daq \
 	FTP_PASS=ftp \
-	GID=1000 \
-	UID=1000
+	GID=500 \
+	UID=500
 
 RUN groupadd -g $GID $FTP_USER
 RUN useradd -rm -d /home/$FTP_USER -s /bin/sh -g $FTP_USER -u $UID $FTP_USER
