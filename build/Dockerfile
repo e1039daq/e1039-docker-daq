@@ -1,7 +1,7 @@
 FROM sl:7
 RUN yum install -y epel-release
 RUN yum groupinstall -y "Development Tools"
-RUN yum install -y root boost boost-thread boost-devel libpng-devel glibc-devel
+RUN yum install -y root boost boost-thread boost-devel libpng-devel glibc-devel gtk3-devel gtkmm30-devel
 # RUN mkdir -p /opt/{etSpy,fileToEvent}
 
 RUN groupadd -g 1000 e1039daq

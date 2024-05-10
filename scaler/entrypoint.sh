@@ -7,7 +7,7 @@ tail -f /var/log/xferlog | tee /dev/stdout &
 
 /usr/sbin/vsftpd
 /usr/sbin/crond
-/usr/bin/crontab /opt/e1039sc4.e1039daq.crontab
+
 
 echo ""
 echo "----------------------"
@@ -24,6 +24,7 @@ cat /opt/hosts >> /etc/hosts
 
 sudo -i -u $FTP_USER tcsh << EOF
 cd /home/$FTP_USER
+/usr/bin/crontab /opt/e1039sc4.e1039daq.crontab
 source dosetupcoda261
 ./PreCoda
 # echo "Starting RunFFT"
