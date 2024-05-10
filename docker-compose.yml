@@ -7,6 +7,7 @@ services:
   #  tty: true        # docker run -t
    environment:
      - DISPLAY=${DISPLAY}
+     - TZ=America/Chicago
    volumes:
      - /tmp/.X11-unix:/tmp/.X11-unix
      - ~/.Xauthority:/root/.Xauthority
@@ -23,6 +24,7 @@ services:
       - DISPLAY=${DISPLAY}
       - FTP_USER=e1039daq
       - FTP_PASS=ftp
+      - TZ=America/Chicago
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.Xauthority:/root/.Xauthority
