@@ -68,7 +68,7 @@ RUN ln -s /home/$FTP_USER/data /root
 RUN mkdir /opt/coda/data
 WORKDIR /home/$FTP_USER
 
-RUN yum install -y libXft-2.3.2-2.el7.i686 rsh libgcc glibc gtk3
+RUN yum install -y libXft-2.3.2-2.el7.i686 rsh libgcc.x86_64 glibc.x86_64 gtk3.x86_64 gtkmm30.x86_64
 
 EXPOSE 22 111 513 514 8101 11111 33106 34585 37011 39221 41991 45000/tcp 45000/udp 45200/udp 45001 45301 45303 45400 45401 60654 20 21 40000-40009
 
