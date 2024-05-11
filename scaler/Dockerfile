@@ -4,12 +4,6 @@ WORKDIR /
 RUN mkdir -p /usr/local/coda /etc /opt/coda /home /opt/coda/e1039daq /tmp /data2 /data4 /opt/E906ScalerDAQ /software/{etSpy,fileToEvent,root}
 WORKDIR /opt/coda
 
-RUN curl -L https://github.com/ngpaladi/simple-gtk-prompt/releases/download/v0.1.0/simple-gtk-prompt --output /usr/local/bin/simple-gtk-prompt
-RUN chmod a+x /usr/local/bin/simple-gtk-prompt
-
-RUN curl -L https://github.com/ngpaladi/simple-gtk-buttonbox/releases/download/v0.1.0/simple-gtk-buttonbox --output /usr/local/bin/simple-gtk-buttonbox
-RUN chmod a+x /usr/local/bin/simple-gtk-buttonbox
-
 RUN yum install -y epel-release
 RUN yum install -y net-tools root nmap xauth dbus-x11 gtkmm30 java-1.6.0-openjdk vsftpd sudo screen xterm tcsh telnet  glibc.i686 compat-libstdc++-33-3.2.3-72.el7.i686  xinetd rsh-server openmotif libXp tftp tftp-server xorg-x11-fonts-misc xorg-x11-fonts-100dpi.noarch xorg-x11-fonts-75dpi.noarch xorg-x11-fonts-ISO8859-1-100dpi xorg-x11-fonts-ISO8859-1-75dpi glibc.i686 libXp.i686 libXpm.i686 libXt.i686 libXmu.i686 libgcc.i686 libXcursor.i686 cronie
 RUN yum install -y systemd-libs.i686 --setopt=protected_multilib=false
@@ -69,6 +63,12 @@ RUN mkdir /opt/coda/data
 WORKDIR /home/$FTP_USER
 
 RUN yum install -y libXft-2.3.2-2.el7.i686 rsh libgcc.x86_64 glibc.x86_64 gtk3.x86_64 gtkmm30.x86_64
+
+RUN curl -L https://github.com/ngpaladi/simple-gtk-prompt/releases/download/v0.1.0/simple-gtk-prompt --output /usr/local/bin/simple-gtk-prompt
+RUN chmod a+x /usr/local/bin/simple-gtk-prompt
+
+RUN curl -L https://github.com/ngpaladi/simple-gtk-buttonbox/releases/download/v0.1.1/simple-gtk-buttonbox --output /usr/local/bin/simple-gtk-buttonbox
+RUN chmod a+x /usr/local/bin/simple-gtk-buttonbox
 
 EXPOSE 22 111 513 514 8101 11111 33106 34585 37011 39221 41991 45000/tcp 45000/udp 45200/udp 45001 45301 45303 45400 45401 60654 20 21 40000-40009
 
