@@ -15,8 +15,11 @@ RUN usermod -a -G slowcontrols e1039daq
 USER e1039daq
 RUN mkdir -p /opt /data2 /data4
 WORKDIR /opt
-COPY assets/ /opt/
+# COPY assets/ /opt/
+RUN mkdir -p /home/e1039daq/BeamDAQ
+COPY assets/BeamDAQ /home/e1039daq/BeamDAQ
 COPY entrypoint.sh /opt/
-WORKDIR /opt/BeamDAQ 
+
+WORKDIR /home/e1039daq/BeamDAQ
 
 ENTRYPOINT ["/bin/bash", "/opt/entrypoint.sh"]

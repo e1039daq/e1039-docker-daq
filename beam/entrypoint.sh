@@ -1,5 +1,4 @@
 # touch /root/.Xauthority
 # xauth add XAUTHKEY
-cd /opt/BeamDAQ/
-. /opt/BeamDAQ/setup.sh
-/opt/BeamDAQ/scripts/run_beamDAQ_forever.sh
+. /home/e1039daq/BeamDAQ/setup.sh
+/home/e1039daq/BeamDAQ/scripts/run_beamDAQ_forever.sh
