@@ -16,8 +16,8 @@ USER e1039daq
 RUN mkdir -p /opt /data2 /data4
 WORKDIR /opt
 # COPY assets/ /opt/
-RUN mkdir -p /home/e1039daq/BeamDAQ
-COPY assets/BeamDAQ /home/e1039daq/BeamDAQ
+RUN mkdir -p /home/e1039daq/
+COPY assets/ /home/e1039daq/
 COPY entrypoint.sh /opt/
 
 WORKDIR /home/e1039daq/BeamDAQ
