@@ -72,4 +72,8 @@ RUN chmod a+x /usr/local/bin/simple-gtk-buttonbox
 
 EXPOSE 22 111 513 514 8101 11111 33106 34585 37011 39221 41991 45000/tcp 45000/udp 45200/udp 45001 45301 45303 45400 45401 60654 20 21 40000-40009
 
+
+RUN rm /etc/localtime
+RUN ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
+
 ENTRYPOINT ["/bin/tcsh", "/opt/entrypoint.sh"]

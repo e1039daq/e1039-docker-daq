@@ -12,6 +12,9 @@ RUN useradd -rm -d /home/e1039daq -s /bin/sh -g e1039daq -u 1000 e1039daq
 RUN usermod -a -G e1039daq500 e1039daq
 RUN usermod -a -G slowcontrols e1039daq
 
+RUN rm /etc/localtime
+RUN ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
+
 USER e1039daq
 RUN mkdir -p /opt /data2 /data4
 WORKDIR /opt
