@@ -10,10 +10,10 @@ scalerdaq: scaler/Dockerfile scaler/entrypoint.sh
 	rsync -a --info=progress2 --delete /data4/dockerDAQ/assets/scaler/ scaler/assets
 	docker compose build scalerdaq
 
-beamdaq: build-container beam/Dockerfile beam/entrypoint.sh
+beamdaq: beam/Dockerfile beam/entrypoint.sh
 	mkdir -p beam/assets
 	rsync -a --info=progress2 --delete /data4/dockerDAQ/assets/beam/ beam/assets
-	docker run --mount type=bind,source=${PWD}/beam/assets/BeamDAQ,target=/build slbuild:7 
+	# docker run --mount type=bind,source=${PWD}/beam/assets/BeamDAQ,target=/build slbuild:7 
 	docker compose build beamdaq
 
 beam: beamdaq
