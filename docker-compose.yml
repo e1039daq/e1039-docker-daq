@@ -8,6 +8,7 @@ services:
    environment:
      - DISPLAY=${DISPLAY}
      - TZ=America/Chicago
+     - BEAMDAQ_DIR=/data4/dockerDAQ/daq/seaquest-daq/BeamDAQ/
    volumes:
      - /tmp/.X11-unix:/tmp/.X11-unix
      - ~/.Xauthority:/root/.Xauthority
@@ -27,6 +28,7 @@ services:
       - FTP_USER=e1039daq
       - FTP_PASS=ftp
       - TZ=America/Chicago
+      - RUNFFT_DIR=/data4/dockerDAQ/daq/seaquest-daq/E906ScalerDAQ/RealtimeMonitor_V1495
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ~/.Xauthority:/root/.Xauthority

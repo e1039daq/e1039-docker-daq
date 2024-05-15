@@ -23,6 +23,6 @@ RUN mkdir -p /home/e1039daq/
 COPY assets/ /home/e1039daq/
 COPY entrypoint.sh /opt/
 
-WORKDIR /home/e1039daq/BeamDAQ
+WORKDIR /home/e1039daq/
 
 ENTRYPOINT ["/bin/bash", "/opt/entrypoint.sh"]

@@ -50,7 +50,6 @@ COPY assets/etc/hosts.equiv /etc
 
 COPY entrypoint.sh /opt
 
-COPY assets/E906ScalerDAQ /opt/E906ScalerDAQ
 COPY assets/home/e1039daq/.tcshrc /root
 COPY assets/home/e1039daq/dosetupcoda261 /root
 
