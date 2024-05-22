@@ -13,4 +13,4 @@ USER e1039daq
 
 
 WORKDIR /build
-CMD ["make --always-make"]
+CMD ["make", "--always-make"]
