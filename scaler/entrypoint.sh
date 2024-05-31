@@ -34,9 +34,9 @@ echo " ------ Starting PreCoda ----- "
 sleep 5
 echo " ------ Starting rcgui ----- "
 rcgui &
-sleep 60
 echo " ------ Starting RunFFT ----- "
-xterm -hold -cr blue -bg blue -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T "Run FFT" -e './RunFFT'   &
+echo "   Waiting 60s to launch...   "
+sleep 60 && xterm -hold -cr blue -bg blue -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T "Run FFT" -e './RunFFT'   &
 echo " ------ Starting Control Window ----- "
 /usr/local/bin/simple-gtk-buttonbox "Scaler DAQ Control" "PreCoda" "./PreCoda" "RCGui" "rcgui &" "RunFFT" "xterm -hold -cr blue -bg blue -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T 'Run FFT' -e './RunFFT'   &" "Kill Coda" "./kcoda" "Terminal" "xterm -hold -cr black -bg black -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T 'Scaler DAQ' -e 'tcsh' &" "Telnet ROC6SC" "xterm -hold -cr black -bg black -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T 'ROC6SC' -e 'telnet 192.168.24.101 100' &" 
 echo " ------ Stopping CODA ----- "
