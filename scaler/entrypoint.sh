@@ -27,11 +27,14 @@ cd /home/$FTP_USER
 umask 002
 /usr/bin/crontab /opt/e1039sc4.e1039daq.crontab
 source dosetupcoda261
+echo " ------ Starting ROC6SC Telnet ----- "
+xterm -hold -cr black -bg black -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T 'ROC6SC' -e 'telnet 192.168.24.101 100' &
 echo " ------ Starting PreCoda ----- "
 ./PreCoda
 sleep 5
 echo " ------ Starting rcgui ----- "
 rcgui &
+sleep 60
 echo " ------ Starting RunFFT ----- "
 xterm -hold -cr blue -bg blue -fg white -sb -rightbar -geometry 62x18+610+550 -sl 2500  -j  -T "Run FFT" -e './RunFFT'   &
 echo " ------ Starting Control Window ----- "
