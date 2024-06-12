@@ -19,6 +19,7 @@ services:
   scalerdaq:
     image: scalerdaq:latest
     build: scaler/
+    restart: always
     hostname: e1039sc4.sq.pri
     stdin_open: true # docker run -i
     tty: true        # docker run -t
